@@ -38,6 +38,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -407,6 +408,7 @@
     <EmbeddedResource Include="settingsForm.resx">
       <DependentUpon>settingsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="assets\Fonts\Schibsted_Grotesk\static\SchibstedGrotesk-Regular.ttf" />
     <None Include="packages.config" />
     <None Include="Price Checker_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
@@ -423,6 +425,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\SchibstedGrotesk-Regular.ttf" />
     <None Include="Resources\tshirt logo.png" />
   </ItemGroup>
   <ItemGroup>

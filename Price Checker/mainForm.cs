@@ -42,6 +42,8 @@ namespace Price_Checker
             fontManager = new FontManagerService();
             lbl_barcode.Font = fontManager.GetCustomFont();
             videoManager = new VideoManagerService(axWindowsMediaPlayer1,pictureBox2); // Pass PictureBox reference
+
+
         }
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)

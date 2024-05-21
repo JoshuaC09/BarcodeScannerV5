@@ -81,15 +81,24 @@ public class VideoManagerService
         return null;
     }
 
-    private string GetVideosFolder(string assetsFolder)
+   private string GetVideosFolder(string assetsFolder)
+{
+    if (string.IsNullOrEmpty(assetsFolder) || !Directory.Exists(assetsFolder) || !Directory.EnumerateFiles(assetsFolder).Any())
     {
-        if (string.IsNullOrEmpty(assetsFolder) || !Directory.Exists(assetsFolder) || !Directory.EnumerateFiles(assetsFolder).Any())
+        appDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+        string defaultVideosFolder = Path.Combine(appDirectory, "assets", "Videos");
+        
+        // Ensure the default directory exists
+        if (!Directory.Exists(defaultVideosFolder))
         {
-            appDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            return Path.Combine(appDirectory, "assets", "Videos");
+            Directory.CreateDirectory(defaultVideosFolder);
         }
-        return assetsFolder;
+
+        return defaultVideosFolder;
     }
+    return assetsFolder;
+}
+
 
     private List<string> GetAllVideoPaths(string videosFolder)
     {
@@ -194,7 +203,7 @@ public class VideoManagerService
         }
         else if (e.newState == 0 || e.newState == 1) // 0 is Undefined, 1 is Stopped
         {
-            PictureBox.Invoke((MethodInvoker)(() => PictureBox.Visible = videoQueue.Count == 0));
+            PictureBox.Invoke((MethodInvoker)(() => PictureBox.Visible = string.IsNullOrEmpty(assetsFolder)));
         }
         else if (e.newState == 3) // 3 represents PlayingState
         {

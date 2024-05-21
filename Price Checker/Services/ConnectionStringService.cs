@@ -11,5 +11,6 @@ namespace Price_Checker.Configuration
         });
 
         public static string ConnectionString => _connectionString.Value;
+
     }
 }

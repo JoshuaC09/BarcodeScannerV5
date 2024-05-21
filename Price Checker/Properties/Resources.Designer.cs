@@ -161,6 +161,16 @@ namespace Price_Checker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SchibstedGrotesk_Regular {
+            get {
+                object obj = ResourceManager.GetObject("SchibstedGrotesk_Regular", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap tag {
